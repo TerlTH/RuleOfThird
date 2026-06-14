@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rule of Third</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <h2>Rule of Third</h2>
+
+  <!-- Предустановки сетки -->
+  <div class="btn-group" style="margin-top:6px">
+    <button id="btnThirds" class="active">Правило третей</button>
+    <button id="btnGolden">Золотое сечение</button>
+    <button id="btnCustom">Своя сетка</button>
+  </div>
+
+  <!-- Кастомная сетка -->
+  <div id="customSection" class="hidden">
+
+  <!-- Выпадающий список сохранённых сеток -->
+  <div class="input-row">
+    <label>Сохранённые:</label>
+    <select id="savedGridSelect">
+      <option value="">— выбрать —</option>
+    </select>
+    <button id="btnLoadGrid">Загрузить</button>
+    <button id="btnDeleteGrid">✕</button>
+  </div>
+
+  <!-- Настройка сетки -->
+  <div class="input-row">
+    <label for="inputCols">Колонок:</label>
+    <input type="number" id="inputCols" value="3" min="1" max="8">
+    <label for="inputRows">Строк:</label>
+    <input type="number" id="inputRows" value="3" min="1" max="8">
+    <button id="btnApply">Применить</button>
+  </div>
+
+  <div id="weightControls" class="hidden">
+    <p class="menu-title">Ширина колонок:</p>
+    <div id="colWeights" class="weight-row"></div>
+    <p class="menu-title" style="margin-top:8px">Высота строк:</p>
+    <div id="rowWeights" class="weight-row"></div>
+  </div>
+
+  <!-- Сохранение сетки -->
+  <div class="input-row" style="margin-top:6px">
+    <button id="btnSaveGrid">💾 Сохранить сетку</button>
+  </div>
+
+  <!-- Поле ввода названия — скрыто по умолчанию -->
+  <div id="saveNameSection" class="hidden">
+    <div class="input-row">
+      <!-- Пометка об ориентации формируется автоматически -->
+      <input type="text" id="inputGridName" placeholder="Название сетки">
+      <span id="orientationBadge" class="badge"></span>
+      <button id="btnConfirmSave">Сохранить</button>
+      <button id="btnCancelSave">Отмена</button>
+    </div>
+  </div>
+
+</div>
+
+  <!-- Управление сеткой в AE -->
+  <div class="btn-group" style="margin-top:6px">
+    <button id="btnShowGrid">Показать сетку в AE</button>
+    <button id="btnHideGrid">Скрыть сетку в AE</button>
+    <button id="btnPlaceFile">↓ Разместить файл</button>
+    <button id="btnClearZones">✕ Очистить ячейки</button>
+  </div>
+
+  <!-- Подсказка -->
+  <p class="hint">Выдели элемент в панели проекта AE → кликни на ячейку</p>
+
+  <!-- Canvas — клик по ячейке размещает выделенный элемент из проекта AE -->
+  <canvas id="gridCanvas" width="360" height="200"></canvas>
+
+  <!-- Статус -->
+  <div id="statusBar"></div>
+
+  <script src="./js/CSInterface.js"></script>
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
